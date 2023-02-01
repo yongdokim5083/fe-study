@@ -4,6 +4,7 @@ import GlobalLayout from './pages/_layout'
 
 const DynamicIndex = React.lazy(() => import('./pages/index'));
 const DynamicStudy2Index = React.lazy(() => import('./pages/study2/index'));
+const DynamicStudy3Index = React.lazy(() => import('./pages/study3/index'));
 const DynamicTempIndex = React.lazy(() => import('./pages/temp/index'));
 
 
@@ -14,6 +15,7 @@ export const routes = [
     children: [
       { path: '/', element: <DynamicIndex />, index: true},
       { path: '/study2', element: <DynamicStudy2Index />, index: true},
+      { path: '/study3', element: <DynamicStudy3Index />, index: true},
       { path: '/temp', element: <DynamicTempIndex />, index: true},
     ]
   }
@@ -22,5 +24,6 @@ export const routes = [
 export const pages = [
   { route: '/' },
   { route: '/study2' },
+  { route: '/study3' },
   { route: '/temp' },
 ]

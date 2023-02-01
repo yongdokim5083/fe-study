@@ -1,10 +1,6 @@
 function Stydy2() {
   function solution(id_list: Array<String>, report: Array<String>, k: number) {
     var answer = [];
-    //중복제거
-    const set = new Set(report);
-    report = [...set];
-
     const map = new Map();
     const suspendedId = [];
 
@@ -13,7 +9,7 @@ function Stydy2() {
       map.set(id, []);
     }
 
-    //유저가 신고한 ID를 추출 및 정지된id 추가
+    //유저가 신고한 ID의 중복제거 및 추출, 정지된id 추가
     for (const report_item of report) {
       const arr = report_item.split(' ');
       map.set(arr[0], [...map.get(arr[0]), arr[1]]);
@@ -21,7 +17,7 @@ function Stydy2() {
     }
 
     //정지된id 카운팅
-    let result: any = {};
+    let result: { [key: string]: number } = {};
     for (const id of suspendedId) {
       result[id] = (result[id] || 0) + 1;
     }
